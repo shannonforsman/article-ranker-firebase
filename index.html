@@ -59,7 +59,7 @@
     <div class="content">
       <p>{{post.description}}</p>
       <h3><i class="fa fa-calendar"></i> {{post.date | amCalendar}}</h3>
-      <h3 class="comments" ng-click="showComments(post)">
+      <h3 class="comments" ng-click="showComments(post)" ng-init="post.showComment = false" >
         <i class="fa fa-comment"></i>
         <ng-pluralize count="post.comments.length || 0"
                    when="{'0': 'no comments',
@@ -67,10 +67,10 @@
                        'other': '{} comments'}">
         </ng-pluralize>
       </h3>
-        <h3 class="comments" ng-click="addComments(post)">
+        <h3 class="comments" ng-click="addComments(post)" ng-init="post.addComment = false">
           <i class="fa fa-pencil"></i> Add a comment
         </h3>
-        <div id="add-comment" ng-show="post.addComment" ng-init="post.addComment = false">
+        <div id="add-comment" ng-show="post.addComment">
           <form ng-submit="commentSubmit(author, text, post); text=''; author=''" ng-init="">
             <label for="author">Author</label>
             <input type="text" id='author' ng-model="author" required>
@@ -79,7 +79,7 @@
             <input type="submit" id="commentSubmit" value='Submit Post'>
           </form>
         </div>
-        <div id="view-comments" ng-show="post.showComment" ng-init="post.showComment = false" ng-repeat="comment in post.comments">
+        <div id="view-comments" ng-show="post.showComment" ng-repeat="comment in post.comments">
           <p><em>{{comment.author}}</em> "{{comment.text}}"</p>
         </div>
       </div>
