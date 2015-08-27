@@ -42,12 +42,12 @@
 </nav>
 
 <main class="group">
-  <article class="post group" ng-repeat="post in list | orderBy: order | filter:searchText">
+  <article class="post group" ng-repeat="post in posts | orderBy: order | filter:searchText;">
     <div class="image" style="background-image: url({{post.imgUrl}})">
       <div class="arrows">
           <div class="vote">
-            <i class="fa fa-arrow-up" ng-click="upVote(post.id)"></i>
-            <i class="fa fa-arrow-down" ng-click="downVote(post.id)"></i>
+            <i class="fa fa-arrow-up" ng-click="upVote(post)"></i>
+            <i class="fa fa-arrow-down" ng-click="downVote(post)"></i>
           </div>
           <div class="vote-count">{{post.votes}}</div>
       </div>
@@ -59,19 +59,19 @@
     <div class="content">
       <p>{{post.description}}</p>
       <h3><i class="fa fa-calendar"></i> {{post.date | amCalendar}}</h3>
-      <h3 class="comments" ng-click="post.showComment = ! post.showComment">
+      <h3 class="comments" ng-click="showComments(post)">
         <i class="fa fa-comment"></i>
-        <ng-pluralize count="post.comments.length"
+        <ng-pluralize count="post.comments.length || 0"
                    when="{'0': 'no comments',
                        'one': '1 comment',
                        'other': '{} comments'}">
         </ng-pluralize>
       </h3>
-        <h3 class="comments" ng-click="post.addComment = ! post.addComment">
+        <h3 class="comments" ng-click="addComments(post)">
           <i class="fa fa-pencil"></i> Add a comment
         </h3>
-        <div id="add-comment" ng-show="post.addComment">
-          <form ng-submit="commentSubmit(author, text, post.id, post)" ng-init="">
+        <div id="add-comment" ng-show="post.addComment" ng-init="post.addComment = false">
+          <form ng-submit="commentSubmit(author, text, post); text=''; author=''" ng-init="">
             <label for="author">Author</label>
             <input type="text" id='author' ng-model="author" required>
             <label for="text">Comment</label>
@@ -79,7 +79,7 @@
             <input type="submit" id="commentSubmit" value='Submit Post'>
           </form>
         </div>
-        <div id="view-comments" ng-show="post.showComment" ng-repeat="comment in post.comments">
+        <div id="view-comments" ng-show="post.showComment" ng-init="post.showComment = false" ng-repeat="comment in post.comments">
           <p><em>{{comment.author}}</em> "{{comment.text}}"</p>
         </div>
       </div>
@@ -88,6 +88,8 @@
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular-animate.js'></script>
+<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+<script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
 <script src="javascript/moment.js"></script>
 <script src="javascript/angular-moment.js"></script>
 <script src="javascript/app.js"></script>
