@@ -1,0 +1,64 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300);
+@import url(http://fonts.googleapis.com/css?family=PT+Mono);
+@import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900);
+
+h1 {
+  font-family: 'Playfair Display';
+  font-weight: 700;
+  font-size: 80px;
+  color: $grey;
+  width: 100%;
+  float: left;
+  margin-bottom: 20px;
+}
+
+h2 {
+  width: 60%;
+  float: left;
+  font-family: 'pt mono';
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: $darkGrey;
+}
+
+h3 {
+  padding-right: 20px;
+  text-align: right;
+  font-family: 'open Sans';
+  font-size: 15px;
+  color: $darkGrey;
+  display: inline-block;
+}
+
+header h3 {
+  display: block;
+  padding-right: 0;
+}
+
+h3.comments {
+  cursor: pointer;
+  &:hover {
+    @include transition(all .3s ease);
+    color: #000;
+  }
+}
+
+
+p {
+  font-family: 'open sans';
+  font-size: 15px;
+  margin: 10px 0;
+  color: $darkGrey;
+  line-height: 1.4em;
+}
+
+.vote-count {
+  font-family: 'pt mono';
+  font-size: 20px;
+  line-height: 40px;
+}
+
+
+em {
+  font-weight: bold;
+}

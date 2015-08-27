@@ -1,0 +1,28 @@
+input[type=submit] {
+  border: 2px solid #37293B;
+  border-radius: 3px;
+  background: none;
+  font-family: 'open sans';
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #37293B;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 12px;
+  &:hover {
+    @include transition(all .3s ease);
+    background: rgba($white, .5);
+  }
+}
+
+a.show {
+  float: left;
+  margin-right: 20px;
+  color: $darkGrey;
+  font-family: 'open sans';
+  cursor: pointer;
+  &:hover {
+    @include transition(all .3s ease);
+    color: #000;
+  }
+}

@@ -1,0 +1,317 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300);
+@import url(http://fonts.googleapis.com/css?family=PT+Mono);
+@import url(http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900);
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+h1 {
+  font-family: 'Playfair Display';
+  font-weight: 700;
+  font-size: 80px;
+  color: #828878;
+  width: 100%;
+  float: left;
+  margin-bottom: 20px; }
+
+h2 {
+  width: 60%;
+  float: left;
+  font-family: 'pt mono';
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #51554B; }
+
+h3 {
+  padding-right: 20px;
+  text-align: right;
+  font-family: 'open Sans';
+  font-size: 15px;
+  color: #51554B;
+  display: inline-block; }
+
+header h3 {
+  display: block;
+  padding-right: 0; }
+
+h3.comments {
+  cursor: pointer; }
+  h3.comments:hover {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    color: #000; }
+
+p {
+  font-family: 'open sans';
+  font-size: 15px;
+  margin: 10px 0;
+  color: #51554B;
+  line-height: 1.4em; }
+
+.vote-count {
+  font-family: 'pt mono';
+  font-size: 20px;
+  line-height: 40px; }
+
+em {
+  font-weight: bold; }
+
+input[type=submit] {
+  border: 2px solid #37293B;
+  border-radius: 3px;
+  background: none;
+  font-family: 'open sans';
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #37293B;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 12px; }
+  input[type=submit]:hover {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.5); }
+
+a.show {
+  float: left;
+  margin-right: 20px;
+  color: #51554B;
+  font-family: 'open sans';
+  cursor: pointer; }
+  a.show:hover {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    color: #000; }
+
+*, *:before, *:after {
+  box-sizing: border-box; }
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+main {
+  width: 1000px;
+  margin: 0 auto;
+  background: rgba(206, 212, 195, 0.75);
+  padding: 20px 100px; }
+  main header {
+    padding: 10px;
+    background: #B3D47C;
+    width: 70%;
+    float: right; }
+
+.image {
+  width: 28%;
+  margin-right: 2%;
+  padding-right: 10px;
+  float: left;
+  height: 200px;
+  background-size: cover; }
+  .image img {
+    width: 100%; }
+  .image .arrows {
+    width: 60px;
+    background: rgba(255, 255, 255, 0.8);
+    height: 50px;
+    color: #828878;
+    padding: 5px; }
+    .image .arrows .vote {
+      width: 50%;
+      float: left; }
+      .image .arrows .vote .fa {
+        margin-bottom: 6px; }
+        .image .arrows .vote .fa:hover {
+          -webkit-transition: all 0.3s ease;
+          -moz-transition: all 0.3s ease;
+          -o-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+          color: #000;
+          cursor: pointer; }
+
+.content {
+  width: 70%;
+  float: right; }
+
+body {
+  background-image: url("../images/backgroundbw.jpg");
+  background-size: cover;
+  background-attachment: fixed; }
+
+.color {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  top: 0;
+  background: rgba(236, 255, 199, 0.3); }
+
+article {
+  margin-bottom: 40px; }
+
+input.search {
+  width: 150px;
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  display: block;
+  float: right;
+  background: rgba(255, 255, 255, 0.5); }
+
+select {
+  background: rgba(255, 255, 255, 0.5);
+  width: 100px;
+  padding: 5px;
+  display: inline-block; }
+
+form {
+  margin-top: 20px;
+  float: left; }
+  form .col {
+    width: 50%;
+    float: left; }
+  form input[type=text], form input[type=url] {
+    width: 90%;
+    margin-right: 10%;
+    border: none;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 3px; }
+  form label {
+    width: 90%;
+    font-family: 'pt mono';
+    color: #51554B;
+    margin-bottom: 5px;
+    float: left; }
+  form textarea {
+    width: 100%;
+    border: none;
+    height: 132px; }
+
+.ng-enter {
+  -webkit-transition: all 0.75s;
+  -moz-transition: all 0.75s;
+  -o-transition: all 0.75s;
+  transition: all 0.75s;
+  opacity: 0; }
+
+.ng-enter-active {
+  opacity: 1; }
+
+.ng-leave {
+  -webkit-transition: all 0.75s;
+  -moz-transition: all 0.75s;
+  -o-transition: all 0.75s;
+  transition: all 0.75s;
+  opacity: 1; }
+
+.ng-leave-active {
+  opacity: 0; }
+
+nav {
+  background: blue;
+  width: 1000px;
+  margin: 50px auto 0;
+  background: rgba(206, 212, 195, 0.75);
+  padding: 50px 100px 0; }
+
+.addPost {
+  clear: both;
+  width: 100%;
+  background: #fff; }
+
+.info {
+  width: 100%;
+  float: right; }
+
+@media (max-width: 1100px) {
+  main, nav {
+    width: 90%; } }
+
+@media (max-width: 830px) {
+  h1 {
+    font-size: 50px; }
+  h3 {
+    margin-bottom: 10px; }
+  main header {
+    width: 100%; }
+    main header h3 {
+      width: 100%;
+      padding-left: 26px;
+      text-align: left;
+      margin-bottom: 0; }
+    main header h2 {
+      width: 100%;
+      margin-bottom: 10px; }
+  .content {
+    width: 100%; }
+  .image {
+    width: 100%;
+    height: 130px; } }
+
+@media (max-width: 650px) {
+  nav {
+    margin-top: 20px;
+    padding: 20px 40px 0; }
+  main {
+    padding: 20px 40px; } }
+
+@media (max-width: 560px) {
+  input.search {
+    float: left;
+    clear: left;
+    margin-top: 20px; } }
+
+@media (max-width: 470px) {
+  h1 {
+    font-size: 40px; } }

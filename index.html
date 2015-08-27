@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='redditApp'>
+<head>
+  <meta charset="UTF-8">
+  <title>Article Ranker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-controller="RedditInfoController">
+<div class="color"></div>
+<nav class="group">
+  <div class="title">
+    <h1>Article Ranker</h1>
+  </div>
+  <div class="info">
+    <select ng-model="order" ng-init="order='-votes'">
+      <option value="-votes">Rating</option>
+      <option value="date">Date</option>
+      <option value="title">Title</option>
+    </select>
+    <a class="show" ng-click="showDetails = ! showDetails"><i class="fa fa-plus"></i> Add Article</a>
+    <input id="search" class='search' placeholder="search" ng-model="searchText">
+  </div>
+  <div ng-show="showDetails" class="addPost">
+    <form ng-submit="submit(title, author, imgUrl, description)" name="submit-form">
+      <div class="col">
+        <label for="title">Title</label>
+        <input type="text" id='title' ng-model="title" required>
+        <label for="author">Author</label>
+        <input type="text" id='author' ng-model="author" required>
+        <label for="imgUrl">Image URL</label>
+        <input type="url" id='imgUrl' ng-model="imgUrl" required>
+      </div>
+      <div class="col">
+        <label for="description">Description</label>
+        <textarea id='description' ng-model="description" required></textarea>
+        <input type="submit" id="submit" value='Submit Post'>
+      </div>
+    </form>
+  </div>
+</nav>
+
+<main class="group">
+  <article class="post group" ng-repeat="post in list | orderBy: order | filter:searchText">
+    <div class="image" style="background-image: url({{post.imgUrl}})">
+      <div class="arrows">
+          <div class="vote">
+            <i class="fa fa-arrow-up" ng-click="upVote(post.id)"></i>
+            <i class="fa fa-arrow-down" ng-click="downVote(post.id)"></i>
+          </div>
+          <div class="vote-count">{{post.votes}}</div>
+      </div>
+    </div>
+    <header>
+      <h2>> {{post.title}}</h2>
+      <h3>{{post.author}}</h3>
+    </header>
+    <div class="content">
+      <p>{{post.description}}</p>
+      <h3><i class="fa fa-calendar"></i> {{post.date | amCalendar}}</h3>
+      <h3 class="comments" ng-click="post.showComment = ! post.showComment">
+        <i class="fa fa-comment"></i>
+        <ng-pluralize count="post.comments.length"
+                   when="{'0': 'no comments',
+                       'one': '1 comment',
+                       'other': '{} comments'}">
+        </ng-pluralize>
+      </h3>
+        <h3 class="comments" ng-click="post.addComment = ! post.addComment">
+          <i class="fa fa-pencil"></i> Add a comment
+        </h3>
+        <div id="add-comment" ng-show="post.addComment">
+          <form ng-submit="commentSubmit(author, text, post.id, post)" ng-init="">
+            <label for="author">Author</label>
+            <input type="text" id='author' ng-model="author" required>
+            <label for="text">Comment</label>
+            <input type="text" id='text' ng-model="text" required>
+            <input type="submit" id="commentSubmit" value='Submit Post'>
+          </form>
+        </div>
+        <div id="view-comments" ng-show="post.showComment" ng-repeat="comment in post.comments">
+          <p><em>{{comment.author}}</em> "{{comment.text}}"</p>
+        </div>
+      </div>
+  </article>
+</main>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular-animate.js'></script>
+<script src="javascript/moment.js"></script>
+<script src="javascript/angular-moment.js"></script>
+<script src="javascript/app.js"></script>
+</body>
+</html>

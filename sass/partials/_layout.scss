@@ -1,0 +1,80 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+main {
+  width: 1000px;
+  margin: 0 auto;
+  background: rgba(206, 212, 195, 0.75);
+  padding: 20px 100px;
+
+  header {
+    padding: 10px;
+    background: $lime;
+    width: 70%;
+    float: right;
+  }
+}
+
+.image {
+  width: 28%;
+  margin-right: 2%;
+  padding-right: 10px;
+  float: left;
+  height: 200px;
+  background-size: cover;
+  img {
+    width: 100%;
+  }
+  .arrows {
+    width: 60px;
+    background: rgba($white, .8);
+    height: 50px;
+    color:$grey;
+    padding: 5px;
+    .vote {
+      width: 50%;
+      float: left;
+      .fa {
+        margin-bottom: 6px;
+        &:hover {
+          @include transition(all .3s ease);
+          color: $black;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.content {
+  width: 70%;
+  float: right;
+}
+
+
+body {
+  background-image: url('../images/backgroundbw.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.color {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  top: 0;
+  background: rgba(236, 255, 199, 0.3);
+}
+
+article {
+  margin-bottom: 40px;
+}
